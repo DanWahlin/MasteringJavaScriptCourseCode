@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Using call() and apply()</title>
+    <script>
+        function log(msg) {
+            document.getElementById('output').innerHTML += '<br />' + msg;
+            console.log(msg);
+        }
+    </script>
+</head>
+<body>
+    <h1>Using call() and apply()</h1>
+    View the results in the debugging console (ctrl/cmd+shift+i)
+    <br /><br />
+    This example demonstrates how to get started using the call() and apply() methods to 
+    change the context of "this".
+    <br /><br />
+    <h3>TauntMachine Output:</h3>
+    <div id="output"></div>
+
+    <script src="call-apply.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Samples</title>
+    <link href="styles/boostrap.min.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Mastering JavaScript</h1>
+    <select id="samples" class="form-control"></select>
+    <h3 id="sampleTitle"></h3>
+
+    <div id="editorContainer">
+        <ul class="nav nav-tabs" role="tablist" id="tabs">
+            <li class="active"><a href="#js" role="tab" data-toggle="tab">JS</a></li>
+            <li><a href="#html" role="tab" data-toggle="tab">HTML</a></li>
+            <li><a href="#css" role="tab" data-toggle="tab">CSS</a></li>
+            <li><a href="#results" role="tab" data-toggle="tab" id="resultsTab">Result</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="js">
+                <div id="jsEditor" class="editor"></div>
+            </div>
+            <div class="tab-pane" id="html">
+                <div id="htmlEditor" class="editor"></div>
+            </div>
+            <div class="tab-pane" id="css">
+                <div id="cssEditor" class="editor"></div>
+            </div>
+            <div class="tab-pane" id="results">
+                <iframe id="codeFrame" src="js/iframe.html" allowfullscreen="true" sandbox="allow-top-navigation allow-scripts allow-forms allow-pointer-lock allow-same-origin allow-popups" allowtransparency="true"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/libs/jquery-2.1.1.min.js"></script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/ace/ace.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/samples.js"></script>
+    <script>
+        editor.init();
+    </script>
+</body>
+
+</html>

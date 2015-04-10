@@ -1,0 +1,107 @@
+﻿body {
+}
+
+.Calculator
+{
+    width:235px;
+    height:194px;
+    box-shadow:3px 4px 2px 0px #efefef; 
+}
+
+.CalculatorHead
+{
+    width: 233px;  
+    border-top:1px solid #d4d4d4;
+    border-left:1px solid #d4d4d4;
+    border-right:1px solid #d4d4d4;     
+}
+
+.Equation
+{
+    font-size: 8pt;
+    font-family: Verdana;
+    height: 10px;
+    text-align: right;
+    margin-right: 5px;
+    padding-bottom: 4px;
+}
+
+.CurrentNumber
+{
+    height: 40px;
+    font-size: 26px;
+    background-color:White;
+    text-align:right;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+.Button
+{
+    float:left;
+    width:35px;
+    font-family: Verdana;
+    font-weight:bold;
+    font-size:14pt;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #d4d4d4;
+    text-align: center;
+    vertical-align:middle;
+    cursor:pointer;
+    background-color: #efefef;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(255,255,255)),
+        color-stop(0.61, rgb(227,227,227)),
+        color-stop(1, rgb(255,255,255))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(255,255,255) 0%,
+        rgb(227,227,227) 61%,
+        rgb(255,255,255) 100%
+    );
+}
+
+.Button:hover { 
+    background-color: #fff;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(255,255,255)),
+        color-stop(0.61, rgb(145, 167, 255)),
+        color-stop(1, rgb(255,255,255))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(255,255,255) 0%,
+        rgb(227,227,227) 61%,
+        rgb(255,255,255) 100%
+    );    
+}
+
+.colspan2
+{
+    width:82px;
+}
+
+.rowspan2
+{
+    height: 58px;
+    float:right;
+    line-height: 3em;
+}
+
+.red
+{
+    color:Red;
+}
+
+.blue
+{
+    color:Navy;
+}
+

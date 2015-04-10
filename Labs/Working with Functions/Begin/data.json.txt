@@ -1,0 +1,7 @@
+[
+    { "firstName": "jane", "lastName": "doe", "city": "phoenix" },
+    { "firstName": "john", "lastName": "doe", "city": "phoenix" },
+    { "firstName": "michelle", "lastName": "thompson", "city": "seattle" },
+    { "firstName": "jose", "lastName": "rodriguez", "city": "california" },
+    { "firstName": "tina", "lastName": "smith", "city": "san francisco" }
+]

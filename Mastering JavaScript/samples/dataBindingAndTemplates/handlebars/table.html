@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rendering a Table with Handlebars</title>
+    <link href="table.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Rendering a Table with Handlebars</h1>
+    <h3>Products</h3>
+    <div id="container"></div>
+
+    <script id="tableTemplate" type="text/x-handlebars-template">
+        <table>
+            {{#each items}}
+            <tr>
+                <td>{{ title }}</td>
+                <td class="{{getSaleCSSClass sale}}">{{ price }}</td>
+            </tr>
+            {{/each}}
+        </table>
+        <br />
+        Total: <span>{{ total }}</span>
+    </script>
+
+    <script src="../../../js/libs/handlebars-v2.0.0.js"></script>
+    <script src="table.js"></script>
+</body>
+</html>

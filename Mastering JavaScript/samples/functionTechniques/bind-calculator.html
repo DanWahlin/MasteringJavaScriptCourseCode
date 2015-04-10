@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using Bind</title>
+    <style type="text/css">
+        button { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Using Bind</h1>
+    View the results in the debugging console (ctrl/cmd+shift+i)
+    <br /><br />
+    This example demonstrates how bind() can be used to set the
+    context of "this" when a function is called.
+    <br /><br />
+    Value 1: <input id="value1" />
+    <br />
+    Value 2: <input id="value2" />
+    <br /><br />
+    <button id="add">+</button>
+    <button id="subtract">-</button>
+    <button id="multiply">*</button>
+    <button id="divide">/</button>
+    <span id="output"></span>
+
+    <script src="bind-calculator.js"></script>
+
+</body>
+</html>

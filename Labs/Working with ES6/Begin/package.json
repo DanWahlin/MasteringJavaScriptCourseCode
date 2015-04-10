@@ -1,0 +1,18 @@
+{
+  "name": "JSDemos",
+  "version": "1.0.0",
+  "description": "Used for JavaScript Demos",
+  "author": "Dan Wahlin",
+  "engines": {
+    "node": ">=0.10.28"
+  },
+  "dependencies": {
+    "express": "^4.9.6"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-6to5": "^1.0.1",
+    "gulp-traceur": "^0.13.0",
+    "traceur": "0.0.66"
+  }
+}

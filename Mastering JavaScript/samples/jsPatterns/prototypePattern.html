@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Using Functions</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <h2>Using the Prototype Pattern to create a calculator</h2>
+        <!-- Note: Event handlers hooked up in code for simplicity. -->
+        <div class="Calculator">
+            <div class="CalculatorHead">
+                <div id="eq" class="Equation"></div>
+                <div id="currNumber" class="CurrentNumber">0</div>
+            </div>
+            <div>
+                <div class="Button" onclick="calc.numberClick(event);">7</div>
+                <div class="Button" onclick="calc.numberClick(event);">8</div>
+                <div class="Button" onclick="calc.numberClick(event);">9</div>   
+                <div class="Button" onclick="calc.setOperator('/');">/</div>        
+                <div class="Button rowspan2" onclick="calc.clearNumbers();">C</div>
+            </div>
+            <div>
+                <div class="Button" onclick="calc.numberClick(event);">4</div>
+                <div class="Button" onclick="calc.numberClick(event);">5</div>
+                <div class="Button" onclick="calc.numberClick(event);">6</div> 
+                <div class="Button" onclick="calc.setOperator('*');">*</div>           
+            </div>
+            <div>
+                <div class="Button" onclick="calc.numberClick(event);">1</div>
+                <div class="Button" onclick="calc.numberClick(event);">2</div>
+                <div class="Button" onclick="calc.numberClick(event);">3</div>
+                <div class="Button" onclick="calc.setOperator('-')">-</div>            
+                <div class="Button rowspan2" onclick="calc.setOperator('=');">=</div>
+            </div>
+            <div>
+                <div class="Button colspan2" onclick="calc.numberClick(event);">0</div>
+                <div class="Button" onclick="calc.numberClick();">.</div>
+                <div class="Button" onclick="calc.setOperator('+');">+</div>            
+            </div>
+        </div>
+    </div>
+
+    <script src="prototypePattern.js"></script>
+</body>
+</html>

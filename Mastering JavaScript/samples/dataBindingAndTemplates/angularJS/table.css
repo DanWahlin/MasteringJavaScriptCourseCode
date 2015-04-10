@@ -1,0 +1,10 @@
+﻿[ng-cloak], [data-ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+table {
+    width: 300px;
+}
+
+.sale { font-weight: bold;color: green;}
+.nosale { color: black;}

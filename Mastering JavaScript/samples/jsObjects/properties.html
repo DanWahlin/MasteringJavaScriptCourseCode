@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JavaScript Properties</title>
+</head>
+<body>
+    <h1>JavaScript Properties</h1>
+    View the results in the debugging console (ctrl/cmd+shift+i)
+    <br /><br />
+    This example shows different techniques that can be used to
+    create properties.
+    <br /><br />
+    Properties can be defined in multiple ways:
+    <br /><br />
+<pre>
+    var person = {
+        firstName: 'John',
+        lastName: 'Doe'
+    }
+    person.age = 24;
+    person['street'] = '123 Main St.';
+    Object.defineProperty(Object.prototype, 
+                          'loginAttempts',
+                          { enumerable: false, value: 0});
+</pre>
+    <br /><br />
+    By using defineProperty() you have more control over how
+    properties can be used. The following example shows how
+    to disable writes:
+<pre>
+    Object.defineProperty(obj, 'myProp', {
+    value: 15,
+    writable: false
+});
+</pre>
+    <script src="properties.js"></script>
+
+</body>
+</html>

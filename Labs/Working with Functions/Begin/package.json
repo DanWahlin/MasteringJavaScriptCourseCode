@@ -1,0 +1,12 @@
+{
+  "name": "Server",
+  "version": "1.0.0",
+  "description": "Used for JavaScript Demos",
+  "author": "Dan Wahlin",
+  "engines": {
+    "node": ">=0.10.28"
+  },
+  "dependencies": {
+    "express": "^4.9.6"
+  }
+}

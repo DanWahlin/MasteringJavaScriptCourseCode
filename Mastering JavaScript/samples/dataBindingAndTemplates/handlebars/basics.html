@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Handlebars Hello World Example</title>
+    <link href="basics.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Handlebars Hello World Example</h1>
+    
+    <div id="container"></div>
+    <script id="personTemplate" type="text/x-handlebars-template">
+        Name: <span>{{ name }}</span>
+        <br />
+        City:
+        <span class="{{highlightCity city}}">{{ city }}</span>
+    </script>
+
+    <script src="../../../js/libs/handlebars-v2.0.0.js"></script>
+    <script src="basics.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="productsApp">
+<head>
+    <title>Rendering a Table with AngularJS</title>
+    <link href="table.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Rendering a Table with AngularJS</h1>
+    <h3>Products</h3>
+    <div ng-controller="ProductsController as vm" ng-cloak>
+        <table>
+            <tr ng-repeat="item in vm.items">
+                <td>{{ item.title }}</td>
+                <td ng-class="{sale: item.sale}">{{ item.price }}</td>
+            </tr>
+        </table>
+        <br />
+        Total:
+        <span>{{ vm.total }}</span>
+    </div>
+
+    <script src="../../../js/libs/angular.min.js"></script>
+    <script src="table.js"></script>
+</body>
+</html>

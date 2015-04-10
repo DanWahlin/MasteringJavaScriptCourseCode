@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Using Functions</title>
+    <style type="text/css">
+        .red { color: red;}
+        .blue { color: Navy;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var output = document.getElementById('Output'),
+                closure = myClosure();
+
+            //Using a closure
+            output.innerHTML = '<br><br>' + closure();
+            setTimeout(function () {
+                output.innerHTML += '<br><br>' + closure();
+            }, 1500);
+        };
+
+        //closure example 
+        function myClosure() {
+            //date will be stored in the closure
+            //due to the function referencing it
+            var date = new Date();
+
+            return function () {
+                var otherDate = new Date();
+                return "Closure variable value for milliseconds: <span class='blue'>" +
+                        date.getMilliseconds() +
+                        "</span><br>Non closure variable value for milliseconds: <span class='red'>" +
+                        otherDate.getMilliseconds() +
+                        "</span>";
+            };
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Using a Closure</h1>
+        Note that the date variable milliseconds shown
+        is the same across calls to the myClosure() function in the code.
+        This is due to a "closure" being created that keeps the variable alive
+        across function calls.
+        <br />
+        <br />
+        <div id="Output"></div>
+    </div>
+</body>
+</html>

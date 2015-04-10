@@ -1,0 +1,46 @@
+﻿<script src="http://code.jquery.com/jquery.js"></script>
+<script src="car.js"></script>
+
+<script>
+    var carMiles,
+        carPrice,
+        carTax,
+        carTotal;
+
+    $(document).ready(function () {
+        carMiles = $('#carMiles');
+        carPrice = $('#carPrice');
+        carTax = $('#carTax');
+        carTotal = $('#carTotal');
+        $('#getCarDetailsButton').click(getCarDetails);
+    });
+
+    function getCarDetails() {
+        var car = new Car();
+        for (var i = 0; i < 10; i++) {
+            car.start();
+            car.stop();
+        }
+
+        carMiles.html(car.getMiles());
+
+        var pricing = car.getPricing();
+        carPrice.html(pricing.basePrice);
+        carTax.html(pricing.tax);
+        carTotal.html(pricing.totalPrice);
+    }
+
+</script>
+
+<div id="wrapper">
+    <button id="getCarDetailsButton">Get Car Details</button>
+    <br />
+    <h2>Car Details</h2>
+    Car Miles: <span id="carMiles"></span>
+    <br />
+    Car Price: <span id="carPrice"></span>
+    <br />
+    Car Tax: <span id="carTax"></span>
+    <br />
+    Car Total: <span id="carTotal"></span>
+</div>

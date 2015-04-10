@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html ng-app="customersApp">
+<head>
+    <title>AngularJS Hello World Example</title>
+    <link href="basics.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>AngularJS Hello World Example</h1>
+    <div ng-controller="CustomersController as vm" ng-cloak>
+        Name: <input ng-model="vm.customer.name" />
+        <br />
+        City: <input ng-model="vm.customer.city" />
+        <br /><br />
+        Name Output: <span>{{vm.customer.name }}</span>
+        <br />
+        City Output: <span>{{ vm.customer.city }}</span>
+    </div>
+
+    <script src="../../../js/libs/angular.min.js"></script>
+    <script src="basics.js"></script>
+</body>
+</html>

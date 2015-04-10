@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rendering a Table with KnockoutJS</title>
+    <link href="table.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Rendering a Table with KnockoutJS</h1>
+    <h3>Products</h3>
+    <table>
+        <tbody data-bind="foreach: items">
+            <tr>
+                <td data-bind="text: title"></td>
+                <td data-bind="text: price, attr: { class: $root.getSaleClass(sale) }"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    Total: <span data-bind="text: total"></span>
+
+    <script src="../../../js/libs/knockoutjs.js"></script>
+    <script src="table.js"></script>
+</body>
+</html>

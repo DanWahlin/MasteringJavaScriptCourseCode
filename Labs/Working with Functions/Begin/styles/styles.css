@@ -1,0 +1,4 @@
+table { width: 400px;}
+th { text-align:left;}
+tbody > tr:nth-child(odd) { background: #efefef; }
+.rowCount { margin-top: 10px; }

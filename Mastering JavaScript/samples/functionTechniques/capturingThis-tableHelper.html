@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using call()</title>
+    <link href="tableStyles.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Using call()</h1>
+    View the results in the debugging console (ctrl/cmd+shift+i)
+    <br /><br />
+    This example demonstrates how to capture "this" to use in functions.
+    <br /><br />
+    <div id="tableContainer"></div>
+
+    <script src="capturingThis-tableHelper.js"></script>
+    <script type="text/javascript">
+        var data = [
+            { firstName: 'Jane', lastName: 'Doe', city: 'Phoenix' },
+            { firstName: 'John', lastName: 'Doe', city: 'Phoenix' },
+            { firstName: 'Michelle', lastName: 'Thompson', city: 'Seattle' },
+            { firstName: 'Jose', lastName: 'Rodriguez', city: 'California' },
+            { firstName: 'Tina', lastName: 'Smith', city: 'New York City' }
+        ];
+        var table = new TableHelper({
+            data: data,
+            containerId: 'tableContainer'
+        });
+        table.render();
+    </script>
+</body>
+</html>

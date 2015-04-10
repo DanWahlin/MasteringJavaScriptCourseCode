@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Working with Functions</title>
+	<link href="styles/styles.css" rel="stylesheet" />
+</head>
+<body>
+	<h3>Customer Data</h3>
+
+	<div id="tableContainer"></div>
+
+	<script src="js/q.js"></script>
+	<script src="js/ajaxService.js"></script>
+	<script src="js/capitalizer.js"></script>
+	<script src="js/tableHelper.js"></script>
+	<script>
+
+		ajaxService.getJSON('data.json.txt').then(function(data) { //Success
+
+			var mappedData = data.map(function(dataItem) {
+		    	for (var prop in dataItem) {
+		    		dataItem[prop] = capitalizer.capitalize(dataItem[prop]);
+		    	}
+		    	return dataItem;
+		    });
+
+			var table = new TableHelper({
+			    data: mappedData,
+			    containerId: 'tableContainer',
+			    columnMap: [
+			    	{firstName: 'First Name'},
+			    	{lastName: 'Last Name'},
+			    	{city: 'City'}
+			    ]
+			});
+			table.render();
+
+
+		}, 
+		function(xmlhttp) { //Error
+			alert(xmlhttp.response)
+		});
+
+
+	</script>
+</body>
+</html>

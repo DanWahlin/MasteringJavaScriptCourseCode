@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Properties on Prototypes</title>
+</head>
+<body>
+    <h1>Properties on Prototypes</h1>
+    View the results in the debugging console (ctrl/cmd+shift+i)
+    <br /><br />
+    This example demonstrates the effect of putting a property in a prototype. A Person prototype
+    defines an orderCount property that is updated each time an addOrder() function is called:
+    <br /><br />
+    <pre>
+        Person.prototype.addOrder = function (order) {
+            console.log('Added order: ' + order);
+            Person.prototype.orderCount++;
+        };
+        Person.prototype.orderCount = 0;
+    </pre>
+    <br /><br />
+    This can be useful when you want property data to be shared across a hierarchy but
+    it's important to understand how prototypes work especially if properties are ever added
+    onto a prototype. A child object that "inherits" from Person will also pick up any changes to the
+    orderCount property unless the child defines it's own property. This can lead to unwanted side-effects.
+    <script src="inheritance-prototypesAndProperties.js"></script>
+
+</body>
+</html>

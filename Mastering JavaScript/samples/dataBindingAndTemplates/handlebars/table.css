@@ -1,0 +1,5 @@
+﻿table {
+    width: 300px;
+}
+.sale { font-weight: bold;color: green;}
+.nosale { color: black;}

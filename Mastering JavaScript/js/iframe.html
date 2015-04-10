@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base id="base" href="" />
+    <title></title>
+    <link href="/styles/iframe.css" rel="stylesheet" />
+    <script src="/js/libs/jquery-2.1.1.min.js"></script>
+    <script>
+        if (!String.prototype.trim) {
+            String.prototype.trim = function () {
+                return this.replace(/^\s+|\s+$/g, '');
+            };
+        }
+
+        window.onmessage = function (e) {
+            console.clear();
+            var data = JSON.parse(e.data),
+                metadata = data.meta,
+                base = '/' + data.baseUrl + '/',
+                baseUrl = (metadata.folder) ? base + metadata.folder + '/' : base,
+                js = $('#js'),
+                htmlDiv = $('#html');
+
+            //Update base to be where the sample is located
+            //var base = document.createElement('base');
+            //base.href = '/' + data.baseUrl + '/';
+            //document.getElementsByTagName('head')[0].appendChild(base);
+            document.getElementById('base').setAttribute('href', baseUrl);
+
+            if (data.html) {
+                var html = data.html.trim();
+                //See if there's a body element and extract content if needed
+                var bodyRegex = /[\s\S]<body*>([\s\S]*.*?)<\/body>/;
+                var match = html.match(bodyRegex);
+                html = (match) ? match[1].trim() : html;
+
+                ////Remove script tag if it points to the existing script that was loaded
+                //if (metadata.jsFile) {
+                //    // The \\ characters are VERY important when using RegExp vs. /regex/
+                //    var scriptRegex = new RegExp('[\\s\\S]<script\\ssrc=[\'"].*' + metadata.jsFile + '[\'"][^>]*><\\/script>');
+                //    html = html.replace(scriptRegex, '');
+                //}
+
+                /*var htmlDiv = document.getElementById('html');
+                var scriptsTagsEmptyRe = /<script.*?[^>]?><\/script>/gm;
+                var scriptsWithContentsRe = /<script\b.*?[^>]?>([\s\S]*?)<\/script>/gm;
+                var scriptsWithContents = html.match(scriptsWithContentsRe);
+                if (scriptsWithContents) {
+                    for (var i = 0, len = scriptsWithContents.length; i < len; i++) {
+                        console.log(scriptsWithContents[i]);
+                    }
+                }*/
+
+                var htmlNodes = $.parseHTML(html, document, true);
+
+                var scripts = []; //All the scripts will go here so we can pull out editable ones
+
+                //This will filter out scripts and leave the rest of the nodes
+                var nodes = htmlNodes.filter(function (node) {
+                    //Filter scripts out
+                    if (node.tagName && node.tagName.toLowerCase() === 'script') {
+                        scripts.push(node);
+                        return false; 
+                    }
+                    //Return everything that isn't a script
+                    return true;
+                });
+
+                htmlDiv.html(nodes); //Add HTML first
+
+                if (scripts) {
+                    for (var i = 0, len = scripts.length; i < len; i++) {
+                        var script = scripts[i];
+                        if (data.js && script.getAttribute('src') == metadata.jsFile) {
+                            var script = document.createElement("script");
+                            script.innerHTML = data.js.trim();
+                            js.append(script);
+                        }
+                        else {
+                            js.append(script);
+                        }
+                    }
+                }
+
+                processFramework(htmlDiv, metadata);
+            }
+
+            if (data.css) {
+                var css = data.css.trim();
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                if (style.styleSheet) {
+                    style.styleSheet.cssText = css;
+                }
+                else {
+                    style.appendChild(document.createTextNode(css));
+                }
+                var cssDiv = document.getElementById('css');
+                cssDiv.innerHTML = '';
+                cssDiv.appendChild(style);
+            }
+
+        };
+
+        function processFramework(htmlDiv, metadata) {
+            if (metadata.info) {
+                if (metadata.info.framework) {
+                    switch (metadata.info.framework.toLowerCase()) {
+                        case 'angularjs':
+                            angular.element(htmlDiv).ready(function () {
+                                //Used to attach module to (will be wiped out when other samples load)
+                                var wrapperDiv = $('<div />');
+                                wrapperDiv.html(htmlDiv.html());
+                                htmlDiv.html(wrapperDiv);
+                                angular.bootstrap(wrapperDiv, [metadata.info.module]);
+                            });
+                            break;
+                    }
+                }
+            }
+        }
+
+        function log(msg) {
+            document.getElementById('log').innerHTML += '<br />' + msg;
+            console.log(msg);
+        }
+    </script>
+</head>
+<body>
+    <div id="html"></div>
+    <div id="css"></div>
+    <div id="js"></div>
+    <div id="log"></div>
+</body>
+</html>
