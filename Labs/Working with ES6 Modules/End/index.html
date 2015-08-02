@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Building Custom ES6 JavaScript Objects</title>
+</head>
+<body>
+    <h3>Automobiles</h3>
+
+    <div id="output"></div>
+
+    <!--<script src="dist/autos.js"></script>-->
+
+    <!--<script src="//jspm.io/system.js"></script>-->
+    <script src="/node_modules/systemjs/dist/system.js"></script>
+
+    <script src="config.js"></script>
+    <script>
+        System.import('./dist/autos');
+    </script>
+
+    <script>
+        var car = new Car({
+            price: 30000, make: 'Chevy', model: 'Malibu',
+            year: 2014, isElectric: false, isHatchback: false
+        });
+
+        var truck = new Truck({
+            price: 40000, make: 'Ford', model: 'F150',
+            year: 2014, is4by4: true
+        });
+
+        var output = document.getElementById('output');
+        output.innerHTML += '<br />' + car.getDetails();
+        output.innerHTML += '<br />' + truck.getDetails();
+        output.innerHTML += '<br />Car total: ' + car.getTotal(.08);
+        output.innerHTML += '<br />Truck total: ' + truck.getTotal(.08);
+    </script>
+</body>
+</html>
