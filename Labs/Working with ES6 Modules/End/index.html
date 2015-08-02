@@ -8,7 +8,15 @@
 
     <div id="output"></div>
 
-    <script src="dist/autos.js"></script>
+    <!--<script src="dist/autos.js"></script>-->
+
+    <!--<script src="//jspm.io/system.js"></script>-->
+    <script src="/node_modules/systemjs/dist/system.js"></script>
+
+    <script src="config.js"></script>
+    <script>
+        System.import('./dist/autos');
+    </script>
 
     <script>
         var car = new Car({

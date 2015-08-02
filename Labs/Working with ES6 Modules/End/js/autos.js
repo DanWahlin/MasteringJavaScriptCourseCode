@@ -1,4 +1,4 @@
-class Auto {
+export class Auto {
 
     constructor(data) {
         this.make = data.make;
@@ -17,7 +17,7 @@ class Auto {
 
 }
 
-class Car extends Auto {
+export class Car extends Auto {
 
     constructor(data) {
         super(data);
@@ -33,7 +33,7 @@ class Car extends Auto {
 }
 
 
-class Truck extends Auto {
+export class Truck extends Auto {
 
     constructor(data) {
         super(data);
