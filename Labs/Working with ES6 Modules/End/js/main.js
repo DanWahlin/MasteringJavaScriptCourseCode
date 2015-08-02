@@ -1,4 +1,4 @@
-import {Car, Truck} from 'dist/autos.js';
+import {Car, Truck} from 'autos';
 
 let car = new Car({
 	price: 30000, make: 'Chevy', model: 'Malibu',
