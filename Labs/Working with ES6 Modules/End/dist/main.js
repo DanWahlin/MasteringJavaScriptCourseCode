@@ -1,13 +1,13 @@
 'use strict';
 
-var _distAutosJs = require('dist/autos.js');
+var _autos = require('autos');
 
-var car = new _distAutosJs.Car({
+var car = new _autos.Car({
 	price: 30000, make: 'Chevy', model: 'Malibu',
 	year: 2014, isElectric: false, isHatchback: false
 });
 
-var truck = new _distAutosJs.Truck({
+var truck = new _autos.Truck({
 	price: 40000, make: 'Ford', model: 'F150',
 	year: 2014, is4by4: true
 });
