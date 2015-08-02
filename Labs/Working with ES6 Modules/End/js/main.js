@@ -11,7 +11,9 @@ let truck = new Truck({
 });
 
 var output = document.getElementById('output');
-output.innerHTML += '<br />' + car.getDetails();
-output.innerHTML += '<br />' + truck.getDetails();
-output.innerHTML += '<br />Car total: ' + car.getTotal(.08);
-output.innerHTML += '<br />Truck total: ' + truck.getTotal(.08);
+output.innerHTML += `
+	<br/>${car.getDetails() }
+	<br/>${truck.getDetails() }
+	<br/>Car total: ${car.getTotal(.08) }
+	<br/>Truck total: ${truck.getTotal(.08) }
+	`;

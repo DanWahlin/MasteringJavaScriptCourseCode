@@ -29,7 +29,6 @@ export class Car extends Auto {
     }
 }
 
-
 export class Truck extends Auto {
     constructor(data) {
         super(data);
