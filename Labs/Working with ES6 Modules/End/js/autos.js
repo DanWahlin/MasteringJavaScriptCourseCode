@@ -1,5 +1,4 @@
 export class Auto {
-
     constructor(data) {
         this.make = data.make;
         this.model = data.model;
@@ -14,11 +13,9 @@ export class Auto {
     getDetails() {
         return this.year + ' ' + this.make + ' ' + this.model;
     }
-
 }
 
 export class Car extends Auto {
-
     constructor(data) {
         super(data);
         this.isElectric = data.isElectric;
@@ -34,7 +31,6 @@ export class Car extends Auto {
 
 
 export class Truck extends Auto {
-
     constructor(data) {
         super(data);
         this.is4by4 = data.is4by4;
@@ -44,5 +40,4 @@ export class Truck extends Auto {
         var details = super.getDetails();
         return details + ' 4X4: ' + this.is4by4;
     }
-
 }
