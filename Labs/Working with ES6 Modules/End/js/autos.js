@@ -11,7 +11,7 @@ export class Auto {
     }
 
     getDetails() {
-        return this.year + ' ' + this.make + ' ' + this.model;
+        return `${this.year} ${this.make} ${this.model}`;
     }
 }
 
@@ -23,9 +23,7 @@ export class Car extends Auto {
     }
 
     getDetails() {
-        var details = super.getDetails();
-        return details + ' Electric: ' + this.isElectric +
-                        ' Hatchback: ' + this.isHatchback;
+        return `${super.getDetails()} Electric: ${this.isElectric} Hatchback: ${this.isHatchback}`;
     }
 }
 
@@ -36,7 +34,6 @@ export class Truck extends Auto {
     }
 
     getDetails() {
-        var details = super.getDetails();
-        return details + ' 4X4: ' + this.is4by4;
+        return `${super.getDetails()} 4x4: ${this.is4by4}`;
     }
 }
