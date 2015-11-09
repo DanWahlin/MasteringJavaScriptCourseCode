@@ -1,29 +1,28 @@
 var ajaxService = function() {
 
 	this.getJSON = function(url) {
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", url, true);
-		xmlhttp.setRequestHeader("Accept", "application/json");
-
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url, true);
+		xhr.setRequestHeader("Accept", "application/json");
+		
 		var deferred = Q.defer();
-
-		xmlhttp.onreadystatechange = (function(xmlhttp, defer) {
-	    	return function() {
-		   		if (xmlhttp.readyState==4) {
-
-		           if (xmlhttp.status==200) {
-		                var data = (xmlhttp.responseText) ? JSON.parse(xmlhttp.responseText) : null;
-		                defer.resolve(data);
-		           }
-		           else {
-		                defer.reject(xmlhttp);
-		           }
-
-		        }
-	    	}
-		})(xmlhttp, deferred);
-
-		xmlhttp.send();
+		
+		xhr.onload = function (e) {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					var data = (xhr.responseText) ? JSON.parse(xhr.responseText) : null;
+					deferred.resolve(data);
+				} else {
+					deferred.reject(xhr);
+				}
+			}
+		};
+		
+		xhr.onerror = function (e) {
+			console.error(xhr.statusText);
+		};
+		
+		xhr.send();
 		return deferred.promise;
 	};
 
