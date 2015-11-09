@@ -1,5 +1,5 @@
 "use strict";
-var Car = (function() {
+var Car = function() {
   function Car(make, model, engine, price) {
     this._make = make;
     this._model = model;
@@ -24,10 +24,12 @@ var Car = (function() {
       return ("Total cost is: " + ((this._price * this._taxRate) + this._price));
     }
   }, {});
-}());
+}();
 Object.defineProperties(module.exports, {
   Car: {get: function() {
       return Car;
     }},
   __esModule: {value: true}
 });
+
+//# sourceMappingURL=templateStrings.js.map

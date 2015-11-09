@@ -1,5 +1,5 @@
 "use strict";
-var Departments = (function() {
+var Departments = function() {
   function Departments() {
     this._depts = new Set();
   }
@@ -21,7 +21,7 @@ var Departments = (function() {
       return this._depts;
     }
   }, {});
-}());
+}();
 var set = new Set();
 set.add('HR');
 set.add('Finance');
@@ -44,32 +44,32 @@ allDepts.forEach(function(dept) {
   console.log('Found department using forEach ' + dept);
 });
 console.log('\n');
-allDepts.forEach((function(dept) {
+allDepts.forEach(function(dept) {
   return console.log('Found department using forEach ' + 'with arrow function: ' + dept);
-}));
+});
 console.log('\n');
-var $__4 = true;
-var $__5 = false;
-var $__6 = undefined;
+var $__5 = true;
+var $__6 = false;
+var $__7 = undefined;
 try {
-  for (var $__2 = void 0,
-      $__1 = (allDepts)[$traceurRuntime.toProperty(Symbol.iterator)](); !($__4 = ($__2 = $__1.next()).done); $__4 = true) {
-    var dept = $__2.value;
+  for (var $__3 = void 0,
+      $__2 = (allDepts)[Symbol.iterator](); !($__5 = ($__3 = $__2.next()).done); $__5 = true) {
+    var dept = $__3.value;
     {
       console.log('Found department using for of loop: ' + dept);
     }
   }
-} catch ($__7) {
-  $__5 = true;
-  $__6 = $__7;
+} catch ($__8) {
+  $__6 = true;
+  $__7 = $__8;
 } finally {
   try {
-    if (!$__4 && $__1.return != null) {
-      $__1.return();
+    if (!$__5 && $__2.return != null) {
+      $__2.return();
     }
   } finally {
-    if ($__5) {
-      throw $__6;
+    if ($__6) {
+      throw $__7;
     }
   }
 }
@@ -83,3 +83,5 @@ depts2.forEach(function(dept) {
 });
 depts.clearDepartments();
 console.log('\nClearing all departments: Size is now: ' + depts.getSet().size);
+
+//# sourceMappingURL=sets.js.map

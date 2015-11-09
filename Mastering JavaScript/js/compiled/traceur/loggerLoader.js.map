@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["loggerLoader.js"],"sourcesContent":["var logger = new Logger('MyLog');\r\nlogger.writeLine('Logging via ES6 classes!');"],"file":"loggerLoader.js","sourceRoot":"/source/"}

@@ -2,7 +2,7 @@ var ajaxService = function() {
 
 	this.getJSON = function(url) {
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", url, false);
+		xmlhttp.open("GET", url, true);
 		xmlhttp.setRequestHeader("Accept", "application/json");
 
 		var deferred = Q.defer();

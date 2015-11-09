@@ -1,14 +1,14 @@
-//Old Way
 'use strict';
 
-var values = [9.99, 0.5];
+//Old Way
+var values = [9.99, .50];
 var oldTotal = values[0],
     oldTax = values[1];
 
 //New Way (Destructuring)
 var total = 9.99;
-var tax = 0.5;
-var _total$tax = { total: 9.99, tax: 0.5 };
+var tax = .50;
+var _total$tax = { total: 9.99, tax: .50 };
 var total2 = _total$tax.total2;
 var tax2 = _total$tax.tax2;
 
@@ -38,19 +38,19 @@ console.log('Destructuring with an ignore: ' + red2 + ' ' + green2);
 console.log('\n');
 //Iteration and destructuring
 var pets = [{
-    name: 'Fido',
+    name: "Fido",
     type: 'Dog',
     treats: {
-        treat1: 'Chewie',
-        treat2: 'Chicken'
+        treat1: "Chewie",
+        treat2: "Chicken"
     },
     age: 10
 }, {
-    name: 'Maestro',
+    name: "Maestro",
     type: 'Dog',
     treats: {
-        treat1: 'Chew Stick',
-        treat2: 'Turkey Chew'
+        treat1: "Chew Stick",
+        treat2: "Turkey Chew"
     },
     age: 5
 }];
@@ -72,15 +72,15 @@ try {
         var t1 = _step$value$treats.treat1;
         var t2 = _step$value$treats.treat2;
 
-        console.log('' + n + ' is a ' + t + ' who likes ' + t1 + ' and ' + t2 + ' treats');
+        console.log(n + ' is a ' + t + ' who likes ' + t1 + ' and ' + t2 + ' treats');
     }
 } catch (err) {
     _didIteratorError = true;
     _iteratorError = err;
 } finally {
     try {
-        if (!_iteratorNormalCompletion && _iterator['return']) {
-            _iterator['return']();
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
         }
     } finally {
         if (_didIteratorError) {
@@ -88,3 +88,4 @@ try {
         }
     }
 }
+//# sourceMappingURL=destructuring.js.map

@@ -1,5 +1,5 @@
 "use strict";
-var Auto = (function() {
+var Auto = function() {
   function Auto(make, model, engine) {
     this._make = make;
     this._model = model;
@@ -25,8 +25,8 @@ var Auto = (function() {
       this._engine = val;
     }
   }, {});
-}());
-var Car = (function($__super) {
+}();
+var Car = function($__super) {
   function Car(make, model, engine, isElectric) {
     $traceurRuntime.superConstructor(Car).call(this, make, model, engine);
     this._isElectric = isElectric;
@@ -42,10 +42,12 @@ var Car = (function($__super) {
       return this.make + ' ' + this.model + ' with a ' + this.engine + ' engine is started!';
     }
   }, {}, $__super);
-}(Auto));
+}(Auto);
 Object.defineProperties(module.exports, {
   Car: {get: function() {
       return Car;
     }},
   __esModule: {value: true}
 });
+
+//# sourceMappingURL=modules-classes.js.map

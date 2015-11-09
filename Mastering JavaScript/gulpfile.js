@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    sourcemaps = require('gulp-sourcemaps'),
     traceur = require('gulp-traceur'),
     babel = require('gulp-babel'),
     ts = require('gulp-typescript'),
@@ -23,14 +24,18 @@ gulp.task('compressScripts', function () {
 gulp.task('traceur', function () {
     gulp.src([es6Path])
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(traceur({ blockBinding: true }))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(compilePath + '/traceur'));
 });
 
 gulp.task('babel', function () {
     gulp.src([es6Path])
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(babel())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(compilePath + '/babel'));
 });
 

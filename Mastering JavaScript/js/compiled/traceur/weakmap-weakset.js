@@ -7,7 +7,6 @@ weakset.add(person2);
 if (weakset.has(person1))
   console.log('Found person!');
 weakset.delete(person2);
-weakset.clear();
 var weakmap = new WeakMap();
 var person1 = {name: 'Fred'},
     person2 = {name: 'Michelle'},
@@ -20,4 +19,5 @@ console.log('Map has person key 321: ' + person.name);
 if (weakmap.has(key1))
   console.log('Found person!');
 weakmap.delete(key2);
-weakmap.clear();
+
+//# sourceMappingURL=weakmap-weakset.js.map

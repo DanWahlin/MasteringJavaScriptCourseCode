@@ -8,3 +8,5 @@ try {
 } catch (e) {
   console.log('i is out of scope due to using let!');
 }
+
+//# sourceMappingURL=scopeAndLet.js.map

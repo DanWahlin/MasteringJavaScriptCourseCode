@@ -1,7 +1,7 @@
 "use strict";
-var myLogger = (function(msg) {
+var myLogger = function(msg) {
   return console.log(msg);
-});
+};
 myLogger('Testing out arrow functions!');
 function Car() {
   var self = this;
@@ -12,18 +12,20 @@ function Car() {
     }, 1000);
   };
 }
-var CarWithArrow = (function() {
+var CarWithArrow = function() {
   function CarWithArrow() {
     this._seats = 6;
   }
   return ($traceurRuntime.createClass)(CarWithArrow, {timeout: function() {
-      var $__0 = this;
-      setTimeout((function() {
-        console.log($__0._seats++);
-      }), 1000);
+      var $__1 = this;
+      setTimeout(function() {
+        console.log($__1._seats++);
+      }, 1000);
     }}, {});
-}());
+}();
 var c = new Car();
 c.timeout();
 var cArrow = new CarWithArrow();
 cArrow.timeout();
+
+//# sourceMappingURL=arrowFunctions.js.map

@@ -1,5 +1,5 @@
 "use strict";
-var Car = (function() {
+var Car = function() {
   function Car() {}
   return ($traceurRuntime.createClass)(Car, {
     currentYear: function() {
@@ -20,8 +20,10 @@ var Car = (function() {
       }
     }
   }, {});
-}());
+}();
 var car = new Car();
 car.setDetails('Toyota', 'Tundra');
 car.setDetails();
 car.setDetails('Toyota', 'Tundra', 2015, 'sunroof', '4X4', '4-door');
+
+//# sourceMappingURL=parameters.js.map

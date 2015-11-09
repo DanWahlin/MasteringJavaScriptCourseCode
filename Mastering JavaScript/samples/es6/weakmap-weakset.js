@@ -10,7 +10,6 @@ weakset.add(person2);
 
 if (weakset.has(person1)) console.log('Found person!');
 weakset.delete(person2); //Delete single item
-weakset.clear(); //Clear all items
 
 
 //Using WeakMap
@@ -30,5 +29,4 @@ console.log('Map has person key 321: ' + person.name);
 
 if (weakmap.has(key1)) console.log('Found person!');
 weakmap.delete(key2); //Delete single item
-weakmap.clear(); //Clear all items
 

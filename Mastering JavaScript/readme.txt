@@ -1,7 +1,9 @@
 Go to this directory in a command prompt.
 
-Run "npm install" to install the necessary Node.js modules
+Run "npm install live-server -g" to install the optional live-server module.
 
-Run "node server.js" to start the server.
+Run "npm install" to install the necessary Node.js modules.
 
-Navigate to http://localhost:8000 in the browser to view the demo page.
+Run "node server.js" or "live-server" to start the server (either one works).
+
+If you used the "node server.js" option then navigate to http://localhost:8000 in the browser to view the demo page.

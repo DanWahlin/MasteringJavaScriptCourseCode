@@ -1,7 +1,7 @@
 "use strict";
 var $__9,
     $__10;
-var Departments = (function() {
+var Departments = function() {
   function Departments() {
     this._depts = new Map();
   }
@@ -26,7 +26,7 @@ var Departments = (function() {
       return this._depts;
     }
   }, {});
-}());
+}();
 var map = new Map();
 map.set('Finance', 'Process bills');
 map.set('HR', 'Human Resources and Healthcare');
@@ -47,18 +47,18 @@ all.forEach(function(val, key) {
   console.log('Found department using forEach ' + key + ': ' + val);
 });
 console.log('\n');
-all.forEach((function(val, key) {
+all.forEach(function(val, key) {
   return console.log(key + ': ' + val);
-}));
+});
 console.log('\n');
 var $__4 = true;
 var $__5 = false;
 var $__6 = undefined;
 try {
   for (var $__2 = void 0,
-      $__1 = (all)[$traceurRuntime.toProperty(Symbol.iterator)](); !($__4 = ($__2 = $__1.next()).done); $__4 = true) {
+      $__1 = (all)[Symbol.iterator](); !($__4 = ($__2 = $__1.next()).done); $__4 = true) {
     var $__8 = $__2.value,
-        key = ($__9 = $__8[$traceurRuntime.toProperty(Symbol.iterator)](), ($__10 = $__9.next()).done ? void 0 : $__10.value),
+        key = ($__9 = $__8[Symbol.iterator](), ($__10 = $__9.next()).done ? void 0 : $__10.value),
         val = ($__10 = $__9.next()).done ? void 0 : $__10.value;
     {
       console.log('Found department using for of loop: ' + key + ': ' + val);
@@ -81,3 +81,5 @@ try {
 console.log('\nFinding specific HR key : ' + depts.getDepartment('HR'));
 depts.clearDepartments();
 console.log('\nClearing all departments: Size is now: ' + depts.getAll().size);
+
+//# sourceMappingURL=maps.js.map

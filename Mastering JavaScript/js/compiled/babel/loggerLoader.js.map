@@ -1,0 +1,1 @@
+{"version":3,"sources":["loggerLoader.js"],"names":[],"mappings":";;AAAA,IAAI,MAAM,GAAG,IAAI,MAAM,CAAC,OAAO,CAAC,CAAC;AACjC,MAAM,CAAC,SAAS,CAAC,0BAA0B,CAAC,CAAC","file":"loggerLoader.js","sourcesContent":["var logger = new Logger('MyLog');\r\nlogger.writeLine('Logging via ES6 classes!');"],"sourceRoot":"/source/"}

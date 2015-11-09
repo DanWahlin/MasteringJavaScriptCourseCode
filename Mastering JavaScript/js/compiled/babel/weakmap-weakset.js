@@ -1,6 +1,6 @@
-//Using WeakSet
 'use strict';
 
+//Using WeakSet
 var weakset = new WeakSet();
 //No size, entries, or values
 //can't use forEach (not enumerable), can't mix types
@@ -11,8 +11,7 @@ weakset.add(person1);
 weakset.add(person2);
 
 if (weakset.has(person1)) console.log('Found person!');
-weakset['delete'](person2); //Delete single item
-weakset.clear(); //Clear all items
+weakset.delete(person2); //Delete single item
 
 //Using WeakMap
 var weakmap = new WeakMap();
@@ -30,5 +29,5 @@ var person = weakmap.get(key2);
 console.log('Map has person key 321: ' + person.name);
 
 if (weakmap.has(key1)) console.log('Found person!');
-weakmap['delete'](key2); //Delete single item
-weakmap.clear(); //Clear all items
+weakmap.delete(key2); //Delete single item
+//# sourceMappingURL=weakmap-weakset.js.map

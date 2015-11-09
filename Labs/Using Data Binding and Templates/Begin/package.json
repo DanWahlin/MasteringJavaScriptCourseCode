@@ -7,6 +7,6 @@
     "node": ">=0.10.28"
   },
   "dependencies": {
-    "express": "^4.9.6"
+    "express": "^4.13.3"
   }
 }
