@@ -12,6 +12,7 @@ var _total$tax = { total: 9.99, tax: .50 };
 var total2 = _total$tax.total2;
 var tax2 = _total$tax.tax2;
 
+
 console.log('Destructuring an array.');
 console.log('Total: ' + total + ' Tax: ' + tax);
 

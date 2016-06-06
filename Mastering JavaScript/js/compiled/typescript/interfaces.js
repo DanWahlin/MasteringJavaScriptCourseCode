@@ -23,7 +23,7 @@ var Interfaces;
             }, 1000);
         };
         return Engine;
-    })();
+    }());
     Interfaces.Engine = Engine;
     var CustomEngine = (function () {
         function CustomEngine() {
@@ -39,7 +39,7 @@ var Interfaces;
             }, 1000);
         };
         return CustomEngine;
-    })();
+    }());
     Interfaces.CustomEngine = CustomEngine;
     var Accessory = (function () {
         function Accessory(accessoryNumber, title) {
@@ -47,7 +47,7 @@ var Interfaces;
             this.title = title;
         }
         return Accessory;
-    })();
+    }());
     Interfaces.Accessory = Accessory;
     var Auto = (function () {
         function Auto(options) {
@@ -101,7 +101,7 @@ var Interfaces;
             configurable: true
         });
         return Auto;
-    })();
+    }());
     Interfaces.Auto = Auto;
     var Truck = (function (_super) {
         __extends(Truck, _super);
@@ -111,7 +111,7 @@ var Interfaces;
             this.fourByFour = options.fourByFour;
         }
         return Truck;
-    })(Auto);
+    }(Auto));
     Interfaces.Truck = Truck;
 })(Interfaces || (Interfaces = {}));
 window.onload = function () {

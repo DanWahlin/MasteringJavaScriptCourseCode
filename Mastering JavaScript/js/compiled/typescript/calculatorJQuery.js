@@ -25,4 +25,4 @@ var CalculatorjQuery = (function () {
         return x - y;
     };
     return CalculatorjQuery;
-})();
+}());

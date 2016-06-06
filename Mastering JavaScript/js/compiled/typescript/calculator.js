@@ -24,4 +24,4 @@ var Calculator = (function () {
         return x - y;
     };
     return Calculator;
-})();
+}());

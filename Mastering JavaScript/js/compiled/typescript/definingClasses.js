@@ -6,7 +6,7 @@ var DefiningClasses;
             this.engineType = engineType;
         }
         return Engine;
-    })();
+    }());
     var Car = (function () {
         function Car(engine) {
             this.engine = engine;
@@ -27,7 +27,7 @@ var DefiningClasses;
             alert('Car engine started ' + this._engine.engineType);
         };
         return Car;
-    })();
+    }());
     window.onload = function () {
         var engine = new Engine(300, 'V8');
         var car = new Car(engine);

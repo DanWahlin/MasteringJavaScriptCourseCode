@@ -26,9 +26,12 @@ var Car = function() {
   }, {});
 }();
 Object.defineProperties(module.exports, {
-  Car: {get: function() {
+  Car: {
+    get: function() {
       return Car;
-    }},
+    },
+    enumerable: true
+  },
   __esModule: {value: true}
 });
 

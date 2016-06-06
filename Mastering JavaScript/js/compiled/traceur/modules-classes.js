@@ -44,9 +44,12 @@ var Car = function($__super) {
   }, {}, $__super);
 }(Auto);
 Object.defineProperties(module.exports, {
-  Car: {get: function() {
+  Car: {
+    get: function() {
       return Car;
-    }},
+    },
+    enumerable: true
+  },
   __esModule: {value: true}
 });
 

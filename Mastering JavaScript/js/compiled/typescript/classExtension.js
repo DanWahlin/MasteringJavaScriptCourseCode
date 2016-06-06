@@ -21,14 +21,14 @@ var Engine = (function () {
         }, 1000);
     };
     return Engine;
-})();
+}());
 var Accessory = (function () {
     function Accessory(accessoryNumber, title) {
         this.accessoryNumber = accessoryNumber;
         this.title = title;
     }
     return Accessory;
-})();
+}());
 var Auto = (function () {
     function Auto(basePrice, engine, make, model) {
         this.engine = engine;
@@ -79,7 +79,7 @@ var Auto = (function () {
         configurable: true
     });
     return Auto;
-})();
+}());
 var Truck = (function (_super) {
     __extends(Truck, _super);
     function Truck(basePrice, engine, make, model, bedLength, fourByFour) {
@@ -88,7 +88,7 @@ var Truck = (function (_super) {
         this.fourByFour = fourByFour;
     }
     return Truck;
-})(Auto);
+}(Auto));
 window.onload = function () {
     var truck = new Truck(40000, new Engine(300, 'V8'), 'Chevy', 'Silverado', 'Long Bed', true);
     truck.addAccessories(new Accessory(1234, 'Sunroof'), new Accessory(4321, 'Towing package'));
