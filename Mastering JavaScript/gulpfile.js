@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
-    es6Path = 'samples/es6/*.js',
+    es2015Path = 'samples/es6/*.js',
     tsPath = 'samples/typescript/*.ts',
     compilePath = 'js/compiled',
     dist = 'js/dist';
@@ -22,7 +22,7 @@ gulp.task('compressScripts', function () {
 });
 
 gulp.task('traceur', function () {
-    gulp.src([es6Path])
+    gulp.src([es2015Path])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(traceur({ blockBinding: true }))
@@ -31,7 +31,7 @@ gulp.task('traceur', function () {
 });
 
 gulp.task('babel', function () {
-    gulp.src([es6Path])
+    gulp.src([es2015Path])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(babel())
@@ -53,7 +53,7 @@ gulp.task('typescript', function () {
 
 gulp.task('watch', function() {
 
-    gulp.watch([es6Path,tsPath], ['traceur', 'babel', 'typescript']);
+    gulp.watch([es2015Path,tsPath], ['traceur', 'babel', 'typescript']);
 
 });
 

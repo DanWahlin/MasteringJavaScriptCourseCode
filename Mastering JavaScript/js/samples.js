@@ -37,24 +37,40 @@
                 title: "7. Use Strict",
                 htmlFile: "useStrict.html",
                 jsFile: "useStrict.js"
-            },
+            }
+        ]
+    },
+    {
+        title: "JavaScript and the DOM",
+        folder: "samples/jsDOM",
+        samples: [
             {
-                title: "8. Events",
-                htmlFile: "events.html",
-                jsFile: "events.js"
-            },
-            {
-                title: "9. DOM Manipulation & Events",
+                title: "1. DOM Manipulation & Events",
                 htmlFile: "domManipulation.html",
                 jsFile: "domManipulation.js"
             },
             {
-                title: "10. Manipulating CSS",
+                title: "2. Manipulating CSS",
                 htmlFile: "manipulatingCSS.html",
                 jsFile: "manipulatingCSS.js",
                 cssFile: "manipulatingCSS.css"
             },
-
+            {
+                title: "3. Events",
+                htmlFile: "events.html",
+                jsFile: "events.js"
+            }
+        ]
+    },
+    {
+        title: "JavaScript and HTML5",
+        folder: "samples/jsHTML5",
+        samples: [
+            {
+                title: "",
+                htmlFile: "",
+                jsFile: ""
+            }
         ]
     },
     {

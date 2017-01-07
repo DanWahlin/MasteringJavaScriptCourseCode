@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Getting Started with JavaScript</title>
+	<style type="text/css">
+		.showError {
+			background-color: red;
+			color: white;
+			font-family: arial;
+			font-weight: bold;
+			border: 3px dotted black;
+			width: 400px;
+		}
+
+		.clearError {
+			background-color: green;
+			color: white;
+			font-family: arial;
+			font-weight: bold;
+			border: 3px dotted yellow;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div id="error">Error Div</div>
+	<br /><br />
+	<button id="showError">Show Error</button>
+	&nbsp;&nbsp;
+	<button id="clearError">Hide Error</button>
+
+
+	<script>
+
+		//Hook each button's click event to a callback function
+		document.getElementById('showError').addEventListener('click', showError);
+		document.getElementById('clearError').addEventListener('click', clearError);
+
+
+		function showError() {
+			var div = document.getElementById('error');
+			div.className = 'showError';
+			div.innerHTML = 'There is an error in the data';
+		}
+
+		function clearError() {
+			var div = document.getElementById('error');
+			div.className = 'clearError';
+			div.innerHTML = 'Error has been cleared';
+		}
+
+		/*
+
+			#### Alternate approach that uses a single function
+
+			var div = document.getElementById('error');
+			document.getElementById('showError').addEventListener('click', showHideError);
+			document.getElementById('clearError').addEventListener('click', showHideError);
+
+			//We could write 1 function to accomplish all of the tasks using
+			//code similar to the following. This uses the event object passed when
+			//a button is clicked.
+			function showHideError(e) {
+				var id = e.target.id; //Gets the target object that triggered the event
+				div.className = id;
+				div.innerHTML = (id === 'showError') ? 'There is an error in the data' : 'Error has been cleared';
+			}
+
+		*/
+	</script>
+</body>
+</html>
