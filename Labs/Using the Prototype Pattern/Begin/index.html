@@ -3,7 +3,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <button id="getCarDetailsButton">Get Car Details</button>
+        <button id="getCarDetailsButton" onclick="getCarDetails()">Get Car Details</button>
         <br />
         <h2>Car Details</h2>
         Car Miles: <span id="carMiles"></span>
@@ -14,32 +14,27 @@
         <br />
         Car Total: <span id="carTotal"></span>
     </div>
-
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="car.js"></script>
 
     <script>
 
-        var carMiles = $('#carMiles'),
-        carPrice = $('#carPrice'),
-        carTax = $('#carTax'),
-        carTotal = $('#carTotal');
-
-        $('#getCarDetailsButton').click(getCarDetails);
-
+        var carMiles = document.getElementById('carMiles'),
+        carPrice = document.getElementById('carPrice'),
+        carTax = document.getElementById('carTax'),
+        carTotal = document.getElementById('carTotal');
 
         function getCarDetails() {
             for (var i = 0; i < 10; i++) {
                 start();
                 stop();
             }
-
-            carMiles.html(getMiles());
-
+            carMiles.innerHTML = getMiles();
+            
             var pricing = getPricing();
-            carPrice.html(pricing.basePrice);
-            carTax.html(pricing.tax);
-            carTotal.html(pricing.totalPrice);
+            carPrice.innerHTML = pricing.basePrice;
+            carTax.innerHTML = pricing.tax;
+            carTotal.innerHTML = pricing.totalPrice;
         }
 
     </script>

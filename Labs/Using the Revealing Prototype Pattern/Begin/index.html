@@ -1,34 +1,5 @@
 ﻿<html>
 <head>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="car.js"></script>
-
-    <script>
-        var carMiles,
-            carPrice,
-            carTax,
-            carTotal;
-
-        window.onload = function () {
-            carMiles = document.getElementById('carMiles');
-            carPrice = document.getElementById('carPrice');
-            carTax = document.getElementById('carTax');
-            carTotal = document.getElementById('carTotal');
-        };
-
-        function getCarDetails() {
-            for (var i = 0; i < 10; i++) {
-                start();
-                stop();
-            }
-            carMiles.innerHTML = getMiles();
-            var pricing = getPricing();
-            carPrice.innerHTML = pricing.basePrice;
-            carTax.innerHTML = pricing.tax;
-            carTotal.innerHTML = pricing.totalPrice;
-        }
-
-    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -43,5 +14,29 @@
         <br />
         Car Total: <span id="carTotal"></span>
     </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="car.js"></script>
+
+    <script>
+
+        var carMiles = document.getElementById('carMiles'),
+        carPrice = document.getElementById('carPrice'),
+        carTax = document.getElementById('carTax'),
+        carTotal = document.getElementById('carTotal');
+
+        function getCarDetails() {
+            for (var i = 0; i < 10; i++) {
+                start();
+                stop();
+            }
+            carMiles.innerHTML = getMiles();
+            var pricing = getPricing();
+            carPrice.innerHTML = pricing.basePrice;
+            carTax.innerHTML = pricing.tax;
+            carTotal.innerHTML = pricing.totalPrice;
+        }
+
+    </script>
 </body>
 </html>

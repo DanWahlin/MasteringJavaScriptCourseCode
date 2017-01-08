@@ -6,17 +6,28 @@
         .red { color: red;}
         .blue { color: Navy;}
     </style>
-    <script type="text/javascript">
-        window.onload = function () {
-            var output = document.getElementById('Output'),
-                closure = myClosure();
+</head>
+<body>
+    <div>
+        <h1>Using a Closure</h1>
+        Note that the date variable milliseconds shown
+        is the same across calls to the myClosure() function in the code.
+        This is due to a "closure" being created that keeps the variable alive
+        across function calls.
+        <br />
+        <br />
+        <div id="Output"></div>
+    </div>
 
-            //Using a closure
-            output.innerHTML = '<br><br>' + closure();
-            setTimeout(function () {
-                output.innerHTML += '<br><br>' + closure();
-            }, 1500);
-        };
+    <script>
+        var output = document.getElementById('Output'),
+            closure = myClosure();
+
+        //Using a closure
+        output.innerHTML = '<br><br>' + closure();
+        setTimeout(function () {
+            output.innerHTML += '<br><br>' + closure();
+        }, 1500);
 
         //closure example 
         function myClosure() {
@@ -34,17 +45,5 @@
             };
         }
     </script>
-</head>
-<body>
-    <div>
-        <h1>Using a Closure</h1>
-        Note that the date variable milliseconds shown
-        is the same across calls to the myClosure() function in the code.
-        This is due to a "closure" being created that keeps the variable alive
-        across function calls.
-        <br />
-        <br />
-        <div id="Output"></div>
-    </div>
 </body>
 </html>
