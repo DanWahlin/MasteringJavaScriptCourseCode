@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Using Animations</title>
+</head>
+<body>
+    Animation:
+    <select id="AnimationOptions">
+        <option>Select One:</option>
+        <option value="simpleDraw">Simple</option>
+        <option value="multipleDraw">Multiple Objects</option>
+    </select>
+    <br />
+    <br />
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <br />
+    <span style="margin-left:15px;" />
+    <script>
+        var x = 0;
+        var y = 0;
+        var timer;
+        var w = 200;
+        var h = 100;
+        var dx = 1;
+        var dy = 3;
+        var canvas;
+        var span;
+        var ctx;
+        var sel;
+
+        sel = document.getElementById('AnimationOptions');
+        sel.onchange = changeAnimation;
+
+        canvas = document.getElementById('canvas');
+        span = document.querySelector('span');
+        ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'Green';
+
+        function changeAnimation() {
+            clearCanvas();
+            window.clearInterval(timer);
+            timer = window.setInterval(eval(sel.value), 10);
+            x = y = 0;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function multipleDraw() {
+            if ((x + dx) + w >= canvas.width) {
+                window.clearInterval(timer);
+                return;
+            }
+            clearCanvas();
+            x += dx;
+
+            ctx.fillRect(x, 0, w, h);
+
+            if (y < canvas.height) {
+                y += dy;
+                for (var i = 30; i < canvas.width; i += canvas.width / 5) {
+                    fillEllipse(i, y);
+                }
+            }
+
+            if (x < 300) {
+                ctx.fillStyle = 'Green';
+            }
+            else {
+                ctx.fillStyle = 'Navy';
+            }
+            updateVals(x, y);
+        }
+
+        function fillEllipse(newX, y) {
+            var radgrad = ctx.createRadialGradient(newX, y, 50, newX, y, 0);
+            radgrad.addColorStop(0, 'Red');
+            radgrad.addColorStop(0.9, 'White');
+            ctx.beginPath();
+            ctx.fillStyle = radgrad;
+            //Render circle
+            ctx.arc(newX, y, 30, 0, 2 * Math.PI, false)
+            ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#000';
+            ctx.stroke();
+            ctx.closePath();
+        }
+
+        function simpleDraw() {
+            if ((x + dx) + w >= canvas.width) {
+                window.clearInterval(timer);
+                return;
+            }
+            ctx.clearRect(x, 0, w, h);
+            x += dx;
+            ctx.fillRect(x, 0, w, h);
+            updateVals(x, y);
+        }
+
+        function updateVals(x, y) {
+            span.innerHTML = 'X: ' + x + ' Y: ' + y;
+        }
+    </script>
+</body>
+</html>

@@ -63,13 +63,60 @@
         ]
     },
     {
-        title: "JavaScript and HTML5",
-        folder: "samples/jsHTML5",
+        title: "JavaScript and HTML5 Canvas",
+        folder: "samples/jsCanvasDemos",
         samples: [
             {
-                title: "",
-                htmlFile: "",
-                jsFile: ""
+                title: "1. Canvas Fundamentals",
+                htmlFile: "canvasFundamentals.html"
+            },
+            {
+                title: "2. Canvas Animation",
+                htmlFile: "canvasSimpleAnimation.html"
+            },
+            {
+                title: "4. Canvas Chart",
+                htmlFile: "chart.html",
+                jsFile: "chart.js"
+            }
+        ]
+    },
+    {
+        title: "JavaScript and HTML5 LocalStorage",
+        folder: "samples/jsLocalStorage",
+        samples: [
+            {
+                title: "1. Local Storage",
+                htmlFile: "LocalStorage.html"
+            },
+            {
+                title: "2. Local Storage with Expando Properties",
+                htmlFile: "LocalStorageWithExpandos.html"
+            },
+            {
+                title: "3. Scribble Storage",
+                htmlFile: "ScribbleStorage.html"
+            }
+        ]
+    },
+    {
+        title: "JavaScript and HTML5 Geolocation",
+        folder: "samples/jsGeolocation",
+        samples: [
+            {
+                title: "1. Geolocation Fundamentals",
+                htmlFile: "simpleGeolocation.html",
+                jsFile: "simpleGeolocation.js"
+            },
+            {
+                title: "2. Geolocation Demo",
+                htmlFile: "geolocationDemo.html",
+                jsFile: "geolocationDemo.js"
+            },
+            {
+                title: "3. Geolocation with a Map",
+                htmlFile: "geolocationWithMap.html",
+                jsFile: "geolocationWithMap.js"
             }
         ]
     },

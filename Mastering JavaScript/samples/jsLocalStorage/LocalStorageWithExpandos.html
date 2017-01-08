@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html >
+
+<html>
+<head>
+    <title>Using Local Storage with Expando Properties</title>
+</head>
+<body>
+    <h2>Settings</h2>
+    <br />
+    Name: <input type="textbox" id="Name"/>
+    <br />
+    State: 
+    <select id="States">
+        <option>Arizona</option>
+        <option>California</option>
+        <option>Utah</option>
+    </select>
+    <br />
+    <button id="SubmitButton">Store Settings</button>&nbsp;&nbsp;
+    <button id="ClearButton">Clear Settings</button>
+    <br />
+    <span id="OutputSpan"></span>
+    <script>
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+
+        loadSettings();
+
+        $('#SubmitButton').addEventListener('click', function () {
+            if (hasLocalStorage()) storeSettings();
+            else alert('No local storage support');
+        });
+
+        $('#ClearButton').addEventListener('click', function () {
+            localStorage.clear();
+            loadSettings();
+        });
+        
+        function loadSettings() {
+            var name = localStorage.name;
+            var state = localStorage.state;
+            $('#Name').value = (name) ? name : '';
+            $('#States').value = state;
+        }
+        
+        function storeSettings() {
+            try {
+                localStorage.name = $('#Name').value;
+                localStorage.state = $('#States').value;
+                $('#OutputSpan').innerHTML = 'Settings Saved!';
+            } catch(e) {
+                if (e == QUOTA_EXCEEDED_ERR) {
+                    alert('Storage quota exceeded');
+                }
+            } 
+        }
+        
+        function hasLocalStorage() {
+            return window.localStorage;
+        }
+    </script>
+</body>
+</html>

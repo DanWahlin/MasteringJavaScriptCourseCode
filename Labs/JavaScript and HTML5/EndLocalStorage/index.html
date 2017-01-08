@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+    <title>Using Local Storage</title>
+</head>
+<body>
+    <h2>Preferences</h2>
+    <br />
+    Favorite City: <input type="text" id="city"/>
+    <br />
+    Favorite Color: 
+    <select id="colors">
+        <option>Select One:</option>
+        <option>Blue</option>
+        <option>Red</option>
+        <option>Green</option>
+        <option>Other</option>
+    </select>
+    <br />
+    <button id="submit">Save Preferences</button>&nbsp;&nbsp;
+    <button id="clear">Clear Preferences</button>
+    <br />
+    <span id="output"></span>
+
+    <script>	
+	    var city = document.getElementById('city'),
+	        colors = document.getElementById('colors');
+            output = document.getElementById('output');
+
+        document.getElementById('submit').addEventListener('click', submitClick);
+        document.getElementById('clear').addEventListener('click', clearClick);
+
+	    loadSettings();
+
+        function submitClick() {
+	        if (hasLocalStorage()) {
+                try {
+	                localStorage.city = city.value;
+	                localStorage.color = colors.value;
+	                output.innerHTML = 'Preferences Saved!';
+                } catch (e) {
+	                if (e === QUOTA_EXCEEDED_ERR) {
+		                alert('Storage quota exceeded');
+	                }
+                }
+	        }
+	        else {
+		        alert('No local storage support');
+	        }
+        }
+		
+		function clearClick() {
+			colors.selectedIndex = 0;
+			if (hasLocalStorage()) {
+				localStorage.clear();
+				loadSettings();
+			}
+		}
+
+
+        function loadSettings() {
+            if (hasLocalStorage()) {
+                city.value = (localStorage.city) ? localStorage.city : '';
+                colors.value = (localStorage.color) ? localStorage.color : '';
+            }
+        }
+        
+        function hasLocalStorage() {
+            return window.localStorage;
+        }
+    </script>
+</body>
+</html>

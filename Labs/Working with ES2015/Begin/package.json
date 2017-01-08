@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Used for JavaScript Demos",
   "author": "Dan Wahlin",
-  "scripts": {
-    "stop": "node server.js"
-  },
   "dependencies": {
     "express": "^4.14.0"
   },
@@ -13,14 +10,8 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "babel-preset-es2015": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "gulp-sourcemaps": "^1.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-plumber": "^1.1.0",
     "gulp-traceur": "^0.17.2",
-    "gulp-typescript": "^3.1.4",
-    "gulp-uglify": "^2.0.0",
-    "traceur": "^0.0.111",
-    "typescript": "^2.1.4"
+    "traceur": "^0.0.111"
   }
 }

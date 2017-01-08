@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Fundamentals</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        var ctx;
+
+        var canvas = document.getElementById('canvas');
+        ctx = canvas.getContext("2d");
+
+        //Render a rectangle
+        ctx.fillStyle = 'Green';
+        ctx.fillRect(0, 0, 200, 100);
+
+        //Render a circle
+        ctx.arc(100, 200, 50, 0, 2 * Math.PI, false);
+        ctx.fillStyle = 'Navy';
+        ctx.fill();
+
+        //Render an arc
+        ctx.beginPath();
+        ctx.arc(100, 300, 50, 0, Math.PI, false);
+        ctx.fillStyle = 'Navy';
+        ctx.fill();
+
+        //Drawing lines
+        ctx.beginPath();
+        ctx.moveTo(100, 400);
+        ctx.lineTo(50, 500);
+        ctx.lineTo(150, 500);
+        ctx.lineTo(100, 400);
+        ctx.strokeStyle = 'Red';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.fillStyle = 'Yellow';
+        ctx.fill();
+
+        //Rounded rectangle
+        roundedRect(ctx, 250, 5, 150, 150, 15);
+
+        //Draw text
+        ctx.fillStyle = 'Black';
+        ctx.font = '30pt Arial';
+        ctx.fillText('Drawing with the Canvas', 0, 550);
+
+
+        function roundedRect(ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x, y + radius);
+            ctx.lineTo(x, y + height - radius);
+            ctx.quadraticCurveTo(x, y + height, x + radius, y + height);
+            ctx.lineTo(x + width - radius, y + height);
+            ctx.quadraticCurveTo(x + width, y + height, x + width, y + height - radius);
+            ctx.lineTo(x + width, y + radius);
+            ctx.quadraticCurveTo(x + width, y, x + width - radius, y);
+            ctx.lineTo(x + radius, y);
+            ctx.quadraticCurveTo(x, y, x, y + radius);
+            ctx.strokeStyle = 'Black';
+            ctx.lineWidth = 10;
+            ctx.stroke();
+            ctx.fillStyle = 'Lime';
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

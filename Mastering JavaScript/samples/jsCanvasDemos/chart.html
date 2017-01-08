@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas Chart Demo</title>
+</head>
+<body style="margin-left:50px;margin-top:50px;">
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script src="http://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="chart.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var dataDef = { title: "US Population Chart",
+                            xLabel: 'Year', 
+                            yLabel: 'Population (millions)',
+                            labelFont: '19pt Arial', 
+                            dataPointFont: '10pt Arial',
+                            renderTypes: [CanvasChart.renderType.lines, CanvasChart.renderType.points],
+                            dataPoints: [{ x: '1790', y: 3.9 }, 
+                                         { x: '1810', y: 7.2 }, 
+                                         { x: '1830', y: 12.8 }, 
+                                         { x: '1850', y: 23.1 },
+                                         { x: '1870', y: 36.5 },
+                                         { x: '1890', y: 62.9 }, 
+                                         { x: '1910', y: 92.2 },
+                                         { x: '1930', y: 123.2 },
+                                         { x: '1950', y: 151.3 }, 
+                                         { x: '1970', y: 203.2 },
+                                         { x: '1990', y: 248.7 }, 
+                                         { x: '2010', y: 308.7}]
+                           };
+            CanvasChart.render('canvas', dataDef);
+        });
+
+    </script>
+</body>
+</html>

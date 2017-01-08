@@ -1,0 +1,12 @@
+{
+  "name": "jsdemos",
+  "version": "1.0.0",
+  "description": "Used for JavaScript Demos",
+  "author": "Dan Wahlin",
+  "scripts": {
+    "stop": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

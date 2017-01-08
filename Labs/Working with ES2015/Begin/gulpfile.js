@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     traceur = require('gulp-traceur'),
     babel = require('gulp-babel'),
-    es6Path = 'js/*.js',
+    es2015Path = 'js/*.js',
     compilePath = 'js/compiled';
 
 
@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 gulp.task('watch', function() {
 
-    gulp.watch(es6Path, ['traceur', 'babel']);
+    gulp.watch(es2015Path, ['traceur', 'babel']);
 
 });
 

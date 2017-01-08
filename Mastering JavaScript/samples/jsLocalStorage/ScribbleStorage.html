@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+body {
+    margin: 0;
+    height: 100%;
+}
+
+#output { 
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -320px;
+    margin-top: -232px;
+}
+</style>
+
+</head>
+<body style="background-color: Black">
+    <canvas id="output" width="640" height="465" />
+    <br />
+    <button id="clear">Clear</button>
+
+<script src="http://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script type="text/javascript">
+    var _isStorageSupported = false;
+    var _index = 0;
+    var _down = false;
+    var _canvas, _dc;
+    var _board;
+    var _x, _y;
+
+    // Get a canvas and a drawing context
+    _canvas = document.getElementById("output");
+    _dc = _canvas.getContext("2d");
+
+    // Initialize the drawing context to produce thick white lines
+    _dc.strokeStyle = "white";
+    _dc.lineWidth = 8;
+    _dc.lineCap = "round";
+
+    // draw a chalkboard image
+    _board = new Image();
+    _board.src = "Images/chalkboard.jpg";
+
+    document.getElementById('clear').addEventListener('click', function() {
+        localStorage.clear();
+        _dc.drawImage(_board, 0, 0);
+    });
+
+    _board.onload = function () {
+        _dc.drawImage(_board, 0, 0);
+
+        // Find out whether this browser supports local storage
+        if ("localStorage" in window && window["localStorage"] != null) {
+            _isStorageSupported = true;
+
+            // If it does, restore any lines stored in local storage
+            if (window.localStorage.length > 0) {
+                _index = window.localStorage.length;
+
+                for (i = 0; i < window.localStorage.length; i++) {
+                    var key = "L" + i.toString();
+                    var line = window.localStorage[key];
+                    if (line != null) {
+                        var coords = line.split(",");
+                        drawLine(_dc, parseInt(coords[0]), parseInt(coords[1]), parseInt(coords[2]), parseInt(coords[3]), false);
+                    }
+                }
+            }
+        }
+        else
+            window.alert("Local storage not supported");
+    }
+
+    // Register handlers for mouse events
+    $("#output").mousedown(onMouseDown);
+    $("#output").mousemove(onMouseMove);
+    $("#output").mouseup(onMouseUp);
+    $("#output").mouseleave(onMouseUp);
+    $("#output").dblclick(onMouseDoubleClick);
+
+    function onMouseDown(e) {
+        if (e.which == 1) {
+            _x = e.pageX - this.offsetLeft;
+            _y = e.pageY - this.offsetTop;
+            _down = true;
+        }
+    }
+
+    function onMouseMove(e) {
+        if (_down && e.which == 1) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+
+            drawLine(_dc, _x, _y, x, y, true);
+
+            _x = x;
+            _y = y;
+        }
+    }
+
+    function onMouseUp(e) {
+        if (e.which == 1) {
+            _down = false;
+        }
+    }
+
+    function onMouseDoubleClick(e) {
+        if (e.which == 1) {
+            // Clear the canvas
+            _canvas.width = _canvas.width;
+
+            // Reinitialize the drawing context, too
+            _dc.strokeStyle = "white";
+            _dc.lineWidth = 8;
+            _dc.lineCap = "round";
+            _dc.drawImage(_board, 0, 0);
+
+            // Clear local storage as well
+            if (_isStorageSupported) {
+                window.localStorage.clear();
+                _index = 0;
+            }
+        }
+    }
+
+    function drawLine(dc, x1, y1, x2, y2, persist) {
+        // Draw the line on the canvas
+        dc.beginPath();
+        dc.moveTo(x1, y1);
+        dc.lineTo(x2, y2);
+        dc.stroke();
+
+        // Write the line to local storage, too, if local storage
+        // is supported and "persist" is true
+        if (_isStorageSupported && persist) {
+            var key = "L" + _index.toString();
+            var line = [x1, y1, x2, y2];
+            _index++;
+
+            try {
+                window.localStorage[key] = line;
+            }
+            catch (e) {
+                if (e == QUOTA_EXCEEDED_ERR) {
+                    window.alert("Storage quota exceeded");
+                    window.localStorage.clear();
+                    _index = 0;
+                }
+            }
+        }
+    }
+
+</script>
+</body>
+
+</html>
