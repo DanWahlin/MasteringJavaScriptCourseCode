@@ -1,11 +1,19 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Interfaces;
 (function (Interfaces) {
-    var Engine = (function () {
+    var Engine = /** @class */ (function () {
         function Engine(horsePower, engineType) {
             this.horsePower = horsePower;
             this.engineType = engineType;
@@ -25,7 +33,7 @@ var Interfaces;
         return Engine;
     }());
     Interfaces.Engine = Engine;
-    var CustomEngine = (function () {
+    var CustomEngine = /** @class */ (function () {
         function CustomEngine() {
         }
         CustomEngine.prototype.start = function (callback) {
@@ -41,7 +49,7 @@ var Interfaces;
         return CustomEngine;
     }());
     Interfaces.CustomEngine = CustomEngine;
-    var Accessory = (function () {
+    var Accessory = /** @class */ (function () {
         function Accessory(accessoryNumber, title) {
             this.accessoryNumber = accessoryNumber;
             this.title = title;
@@ -49,7 +57,7 @@ var Interfaces;
         return Accessory;
     }());
     Interfaces.Accessory = Accessory;
-    var Auto = (function () {
+    var Auto = /** @class */ (function () {
         function Auto(options) {
             this.engine = options.engine;
             this.basePrice = options.basePrice;
@@ -65,7 +73,7 @@ var Interfaces;
         Auto.prototype.addAccessories = function () {
             var accessories = [];
             for (var _i = 0; _i < arguments.length; _i++) {
-                accessories[_i - 0] = arguments[_i];
+                accessories[_i] = arguments[_i];
             }
             this.accessoryList = '';
             for (var i = 0; i < accessories.length; i++) {
@@ -103,12 +111,13 @@ var Interfaces;
         return Auto;
     }());
     Interfaces.Auto = Auto;
-    var Truck = (function (_super) {
+    var Truck = /** @class */ (function (_super) {
         __extends(Truck, _super);
         function Truck(options) {
-            _super.call(this, options);
-            this.bedLength = options.bedLength;
-            this.fourByFour = options.fourByFour;
+            var _this = _super.call(this, options) || this;
+            _this.bedLength = options.bedLength;
+            _this.fourByFour = options.fourByFour;
+            return _this;
         }
         return Truck;
     }(Auto));

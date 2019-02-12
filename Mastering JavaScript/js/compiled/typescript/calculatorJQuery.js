@@ -2,7 +2,7 @@
 $(document).ready(function () {
     var calc = new CalculatorjQuery('X', 'Y', 'Output');
 });
-var CalculatorjQuery = (function () {
+var CalculatorjQuery = /** @class */ (function () {
     function CalculatorjQuery(xId, yId, outputId) {
         this.x = $('#' + xId);
         this.y = $('#' + yId);

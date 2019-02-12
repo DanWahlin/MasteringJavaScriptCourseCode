@@ -1,9 +1,17 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var Engine = (function () {
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var Engine = /** @class */ (function () {
     function Engine(horsePower, engineType) {
         this.horsePower = horsePower;
         this.engineType = engineType;
@@ -22,14 +30,14 @@ var Engine = (function () {
     };
     return Engine;
 }());
-var Accessory = (function () {
+var Accessory = /** @class */ (function () {
     function Accessory(accessoryNumber, title) {
         this.accessoryNumber = accessoryNumber;
         this.title = title;
     }
     return Accessory;
 }());
-var Auto = (function () {
+var Auto = /** @class */ (function () {
     function Auto(basePrice, engine, make, model) {
         this.engine = engine;
         this.basePrice = basePrice;
@@ -43,7 +51,7 @@ var Auto = (function () {
     Auto.prototype.addAccessories = function () {
         var accessories = [];
         for (var _i = 0; _i < arguments.length; _i++) {
-            accessories[_i - 0] = arguments[_i];
+            accessories[_i] = arguments[_i];
         }
         this.accessoryList = '';
         for (var i = 0; i < accessories.length; i++) {
@@ -80,12 +88,13 @@ var Auto = (function () {
     });
     return Auto;
 }());
-var Truck = (function (_super) {
+var Truck = /** @class */ (function (_super) {
     __extends(Truck, _super);
     function Truck(basePrice, engine, make, model, bedLength, fourByFour) {
-        _super.call(this, basePrice, engine, make, model);
-        this.bedLength = bedLength;
-        this.fourByFour = fourByFour;
+        var _this = _super.call(this, basePrice, engine, make, model) || this;
+        _this.bedLength = bedLength;
+        _this.fourByFour = fourByFour;
+        return _this;
     }
     return Truck;
 }(Auto));

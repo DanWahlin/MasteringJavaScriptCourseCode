@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
-    traceur = require('gulp-traceur'),
     babel = require('gulp-babel'),
     ts = require('gulp-typescript'),
     uglify = require('gulp-uglify'),
@@ -21,20 +20,13 @@ gulp.task('compressScripts', function () {
         .pipe(gulp.dest(dist));
 });
 
-gulp.task('traceur', function () {
-    gulp.src([es2015Path])
-        .pipe(plumber())
-        .pipe(sourcemaps.init())
-        .pipe(traceur({ blockBinding: true }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(compilePath + '/traceur'));
-});
-
 gulp.task('babel', function () {
-    gulp.src([es2015Path])
+    return gulp.src([es2015Path])
         .pipe(plumber())
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        .pipe(babel({
+			presets: ['@babel/env']
+		}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(compilePath + '/babel'));
 });
@@ -44,7 +36,7 @@ gulp.task('typescript', function () {
                        .pipe(ts({
                            target: 'ES5',
                            declarationFiles: false,
-                           noExternalResolve: true
+                           noResolve: true
                        }));
 
     tsResult.dts.pipe(gulp.dest(compilePath + '/tsdefinitions'));
@@ -53,8 +45,8 @@ gulp.task('typescript', function () {
 
 gulp.task('watch', function() {
 
-    gulp.watch([es2015Path,tsPath], ['traceur', 'babel', 'typescript']);
+    gulp.watch([es2015Path,tsPath], gulp.series('babel', 'typescript'));
 
 });
 
-gulp.task('default', ['traceur', 'babel', 'typescript', 'watch', 'compressScripts']);
+gulp.task('default', gulp.series('babel', 'typescript', 'watch', 'compressScripts'));

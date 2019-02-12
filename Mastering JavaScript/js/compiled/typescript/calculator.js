@@ -1,7 +1,7 @@
 window.onload = function () {
     var calc = new Calculator('X', 'Y', 'Output');
 };
-var Calculator = (function () {
+var Calculator = /** @class */ (function () {
     function Calculator(xId, yId, outputId) {
         this.x = document.getElementById(xId);
         this.y = document.getElementById(yId);

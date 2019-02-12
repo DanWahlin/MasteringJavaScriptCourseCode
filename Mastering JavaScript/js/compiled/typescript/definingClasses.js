@@ -1,13 +1,13 @@
 var DefiningClasses;
 (function (DefiningClasses) {
-    var Engine = (function () {
+    var Engine = /** @class */ (function () {
         function Engine(horsePower, engineType) {
             this.horsePower = horsePower;
             this.engineType = engineType;
         }
         return Engine;
     }());
-    var Car = (function () {
+    var Car = /** @class */ (function () {
         function Car(engine) {
             this.engine = engine;
         }
